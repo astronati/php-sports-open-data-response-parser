@@ -19,7 +19,7 @@ class ResponseParser
      * @return ResponseAbstract
      * @throws \Exception When the type is not allowed
      */
-    public function create(array $apiResponse, $type): ResponseAbstract
+    public static function create(array $apiResponse, $type): ResponseAbstract
     {
         $response = array();
 
