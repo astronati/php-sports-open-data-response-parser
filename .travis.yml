@@ -8,6 +8,7 @@ cache:
 install:
   - composer install
 script:
+  - composer analysis
   - composer test
 notifications:
   slack:

@@ -32,6 +32,6 @@ class ResponseParserTest extends TestCase
     public function testException()
     {
         $this->expectException("\Exception");
-        $response = ResponseParser::create([], -1);
+        ResponseParser::create([], -1);
     }
 }
