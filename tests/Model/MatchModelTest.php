@@ -16,9 +16,20 @@ class MatchModelTest extends TestCase
     public function testGetHomeTeam()
     {
         $homeTeam = $this->getTeamInstance();
-        $awayTeam = $this->getTeamInstance();
-        $matchModel = new MatchModel($homeTeam, $awayTeam);
+        $matchModel = new MatchModel([], $homeTeam, $this->getTeamInstance());
         $this->assertEquals($homeTeam, $matchModel->getHomeTeam());
+    }
+
+    public function testGetAwayTeam()
+    {
+        $awayTeam = $this->getTeamInstance();
+        $matchModel = new MatchModel([], $this->getTeamInstance(), $awayTeam);
         $this->assertEquals($awayTeam, $matchModel->getAwayTeam());
+    }
+
+    public function testGetDate()
+    {
+        $matchModel = new MatchModel(['date_match' => '2018-03-21T00:00:00+02:00'], $this->getTeamInstance(), $this->getTeamInstance());
+        $this->assertEquals('2018-03-21T00:00:00+02:00', $matchModel->getDate());
     }
 }
