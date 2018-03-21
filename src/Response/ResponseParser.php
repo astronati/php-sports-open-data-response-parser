@@ -16,10 +16,10 @@ class ResponseParser
     /**
      * @param array $apiResponse The response from the API
      * @param int $type
-     * @return ResponseAbstract
+     * @return mixed
      * @throws \Exception When the type is not allowed
      */
-    public static function create(array $apiResponse, $type): ResponseAbstract
+    public static function create(array $apiResponse, $type)
     {
         $response = array();
 
@@ -27,6 +27,7 @@ class ResponseParser
             case self::GET_ROUND_MATCHES:
                 foreach ($apiResponse['data']['matches'] as $match) {
                     $response[] = new MatchModel(
+                      $match,
                       new TeamModel($match['home']),
                       new TeamModel($match['away'])
                     );
