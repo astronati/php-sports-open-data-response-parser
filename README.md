@@ -17,7 +17,7 @@ To do that please file a new [issue](https://github.com/astronati/php-sports-ope
 ## Installation
 You can install the library and its dependencies using `composer` running:
 ```sh
-$ composer require astronati/exsports-open-data-response-parser
+$ composer require astronati/sports-open-data-response-parser
 ```
 
 ### Usage
@@ -35,7 +35,7 @@ $response = ResponseParser::create($apiResponse, ResponseParser::GET_SEASONS_AVA
 ...
 // Get 2017-2018 season
 $season = $response->findOneBySlug('17-18');
-echo $season->getStartDate();
+echo $season->getStartDate(); // 2017-07-01...
 ```
 
 For more details please take a look at [Response](https://github.com/astronati/php-sports-open-data-response-parser/tree/master/src/Response).
@@ -74,9 +74,6 @@ Run what follows to see the code coverage:
 ```sh
 $ composer coverage
 ```
-
-See [Code Coverage](http://astronati.github.io/php-sports-open-data-response-parser/coverage/html/index.html)
-for more details.
 
 ## License
 This package is released under the [MIT license](LICENSE.md).
