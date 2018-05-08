@@ -2,6 +2,7 @@
 
 namespace SODRP\Response;
 
+use SODRP\Exception\NotFoundResponseTypeException;
 use SODRP\Model\MatchModel;
 use SODRP\Model\RoundModel;
 use SODRP\Model\SeasonModel;
@@ -44,7 +45,7 @@ class ResponseParser
                 }
                 return new GetSeasonsAvailableResponse($response);
             default:
-                throw new \Exception('Type not allowed');
+                throw new NotFoundResponseTypeException('Response type not found');
         }
     }
 }
