@@ -18,7 +18,7 @@ class ResponseParser
      * @param array $apiResponse The response from the API
      * @param int $type
      * @return mixed
-     * @throws \Exception When the type is not allowed
+     * @throws NotFoundResponseTypeException When the type is not allowed
      */
     public static function create(array $apiResponse, $type)
     {
