@@ -1,5 +1,7 @@
 <?php
 
+namespace SODRP\tests\Response;
+
 use PHPUnit\Framework\TestCase;
 use SODRP\Response\GetRoundMatchesResponse;
 
@@ -21,6 +23,6 @@ class GetRoundMatchesResponseTest extends TestCase
         }
 
         $getRoundMatchesResponse = new GetRoundMatchesResponse($response);
-        $this->assertEquals($response[0], $getRoundMatchesResponse->getMatches()[0]);
+        $this->assertSame($response[0], $getRoundMatchesResponse->getMatches()[0]);
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+namespace SODRP\tests\Response;
+
 use PHPUnit\Framework\TestCase;
 use SODRP\Response\GetSeasonsAvailableResponse;
 

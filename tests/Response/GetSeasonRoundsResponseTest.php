@@ -1,5 +1,7 @@
 <?php
 
+namespace SODRP\tests\Response;
+
 use PHPUnit\Framework\TestCase;
 use SODRP\Response\GetSeasonRoundsResponse;
 
@@ -21,6 +23,6 @@ class GetSeasonRoundsResponseTest extends TestCase
         }
 
         $getSeasonRoundsResponse = new GetSeasonRoundsResponse($response);
-        $this->assertEquals($response[0], $getSeasonRoundsResponse->getRounds()[0]);
+        $this->assertSame($response[0], $getSeasonRoundsResponse->getRounds()[0]);
     }
 }
