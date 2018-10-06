@@ -7,7 +7,7 @@ use SODRP\Model\RoundModel;
 class GetSeasonRoundsResponse
 {
     /**
-     * @var array
+     * @var RoundModel[]
      */
     protected $rounds;
 

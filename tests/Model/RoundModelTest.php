@@ -1,5 +1,7 @@
 <?php
 
+namespace SODRP\tests\Model;
+
 use PHPUnit\Framework\TestCase;
 use SODRP\Model\RoundModel;
 

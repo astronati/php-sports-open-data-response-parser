@@ -4,6 +4,7 @@ namespace SODRP\Response;
 
 use SODRP\Exception\NotFoundResponseTypeException;
 use SODRP\Model\MatchModel;
+use SODRP\Model\PlayerModel;
 use SODRP\Model\RoundModel;
 use SODRP\Model\SeasonModel;
 use SODRP\Model\TeamModel;
@@ -13,6 +14,7 @@ class ResponseParser
     const GET_ROUND_MATCHES = 1;
     const GET_SEASON_ROUNDS = 2;
     const GET_SEASONS_AVAILABLE = 3;
+    const GET_SEASON_TEAMS_AVAILABLE_PLAYERS = 4;
 
     /**
      * @param array $apiResponse The response from the API
@@ -44,6 +46,11 @@ class ResponseParser
                     $response[] = new SeasonModel($season);
                 }
                 return new GetSeasonsAvailableResponse($response);
+            case self::GET_SEASON_TEAMS_AVAILABLE_PLAYERS:
+                foreach ($apiResponse['data']['players'] as $player) {
+                    $response[] = new PlayerModel($player);
+                }
+                return new GetSeasonTeamsAvailablePlayersResponse($response);
             default:
                 throw new NotFoundResponseTypeException('Response type not found');
         }
