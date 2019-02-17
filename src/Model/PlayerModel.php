@@ -7,11 +7,11 @@ class PlayerModel
     /**
      * @var array
      */
-    private $footballer;
+    private $player;
 
-    public function __construct(array $footballer)
+    public function __construct(array $player)
     {
-        $this->player = $footballer;
+        $this->player = $player;
     }
 
     /**
@@ -31,10 +31,13 @@ class PlayerModel
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getNumber(): int
+    public function getNumber(): ?int
     {
+        if ($this->player['number'] == null || $this->player['number'] === 0) {
+            return null;
+        }
         return $this->player['number'];
     }
 }

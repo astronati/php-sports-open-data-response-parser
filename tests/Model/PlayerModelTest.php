@@ -46,19 +46,29 @@ class PlayerModelTest extends TestCase
         $this->assertSame($name, $playerModel->getFirstName());
     }
 
+    public function getNumberDataProvider()
+    {
+        return [
+          ['Ronaldo', 'Cristiano', 7, 7],
+          ['Ronaldo', 'Cristiano', 0, null],
+          ['Ronaldo', 'Cristiano', null, null],
+        ];
+    }
+
     /**
-     * @dataProvider dataProvider
+     * @dataProvider getNumberDataProvider
      * @param string $fullname
      * @param string $name
      * @param int $number
+     * @param int $expectedNumber
      */
-    public function testGetNumber($fullname, $name, $number)
+    public function testGetNumber($fullname, $name, $number, $expectedNumber)
     {
         $playerModel = new PlayerModel([
           'fullname' => $fullname,
           'name' => $name,
           'number' => $number,
         ]);
-        $this->assertSame($number, $playerModel->getNumber());
+        $this->assertSame($expectedNumber, $playerModel->getNumber());
     }
 }
