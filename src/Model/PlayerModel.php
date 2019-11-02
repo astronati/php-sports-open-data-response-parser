@@ -35,7 +35,7 @@ class PlayerModel
      */
     public function getNumber(): ?int
     {
-        if ($this->player['number'] == null || $this->player['number'] === 0) {
+        if ($this->player['number'] == null || $this->player['number'] <= 0) {
             return null;
         }
         return $this->player['number'];
