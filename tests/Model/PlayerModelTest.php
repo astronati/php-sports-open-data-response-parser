@@ -51,6 +51,7 @@ class PlayerModelTest extends TestCase
         return [
           ['Ronaldo', 'Cristiano', 7, 7],
           ['Ronaldo', 'Cristiano', 0, null],
+          ['Ronaldo', 'Cristiano', -1, null],
           ['Ronaldo', 'Cristiano', null, null],
         ];
     }
